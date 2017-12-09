@@ -61,7 +61,7 @@ public class PESEL {
         }
     }
 
-    private Sex extractSex(String pesel) {
+    private static Sex extractSex(String pesel) {
         if(pesel.charAt(9) % 2 == 0)
             return Sex.Female;
         else
