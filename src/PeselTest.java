@@ -3,7 +3,6 @@ import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.time.LocalDate;
 import java.util.Arrays;
 
 public class PeselTest {
@@ -54,12 +53,12 @@ public class PeselTest {
                     }
                 })
                 .forEach(p -> {
-            try {
-                System.out.println(p + " was born at " + extractDate.invoke(null, p));
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        });
+                    try {
+                        System.out.println(p + " was born at " + extractDate.invoke(null, p));
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                });
     }
 
     @Test
@@ -80,12 +79,12 @@ public class PeselTest {
                     }
                 })
                 .forEach(p -> {
-            try {
-                System.out.println(p + " is of " + extractSex.invoke(null, p));
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        });
+                    try {
+                        System.out.println(p + " is of " + extractSex.invoke(null, p));
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                });
     }
 
 
