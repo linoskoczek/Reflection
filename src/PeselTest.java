@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,7 +28,15 @@ public class PeselTest {
     public void testPeselValidation() {
         Arrays.stream(SomePesels.pesels).forEach(p -> {
             try {
-                System.out.println(p + " is " + ((boolean) validate.invoke(null, p) ? "VALID" : "INVALID"));
+                Assert.assertTrue(((boolean) validate.invoke(null, p)));
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        });
+
+        Arrays.stream(SomePesels.bad).forEach(p -> {
+            try {
+                Assert.assertFalse(((boolean) validate.invoke(null, p)));
             } catch (IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
             }
